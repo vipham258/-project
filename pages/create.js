@@ -1,12 +1,20 @@
+import React, { useState } from "react";
 import Layout from "../components/MyLayout";
 import { TextArea, InputGroup } from "@blueprintjs/core/";
 import "normalize.css";
 // import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 const createForm = () => {
+  const [cheeseId, setCheeseId] = useState("0");
+  const []
+
   return (
     <Layout>
-      <InputGroup placeholder={"CheeseID"}></InputGroup>
+      <form>
+        <label>
+          Cheese ID: <input type="text" name="cheeseId"></input>
+        </label>
+      </form>
     </Layout>
   );
 };
