@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../components/MyLayout";
 import { useCheeseData } from "../hooks/useCheeseData";
 import "normalize.css";
 import Link from "next/link";
-
-// import "@blueprintjs/icons/lib/css/blueprint-icons.css";
-import "@blueprintjs/core/lib/css/blueprint.css";
+import { useRouter } from "next/router";
 import { FormGroup, InputGroup } from "@blueprintjs/core";
+
 const FormField = props => {
   return (
     <div>
@@ -23,8 +22,11 @@ const FormField = props => {
 };
 
 const CreateForm = () => {
-  const { cheeseData, createRecord } = useCheeseData();
-  const [state, setState] = React.useState({});
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { cheeseData, selectRecord, updateRecord } = useCheeseData();
+  const [state, setState] = React.useState(selectRecord(id));
 
   const fieldPropsList = cheeseData.header.map(columnName => {
     return {
@@ -50,13 +52,13 @@ const CreateForm = () => {
     fieldPropsList.forEach(fieldProps => {
       cheeseRecord[fieldProps.label] = fieldProps.value;
     });
-    createRecord(cheeseRecord);
+    updateRecord(id, cheeseRecord);
   };
   return (
     <Layout>
       <div>
         <form>
-          <h2 style={{ color: "GreenYellow" }}>Create Cheese record</h2>
+          <h2 style={{ color: "GreenYellow" }}>Edit Cheese record</h2>
           <div>
             {fieldPropsList.map(fieldProps => {
               return (
@@ -70,7 +72,7 @@ const CreateForm = () => {
             })}
           </div>
           <Link href="/">
-            <input type="button" value="Create" onClick={handleSubmit} />
+            <input type="button" value="Update" onClick={handleSubmit} />
           </Link>
         </form>
       </div>

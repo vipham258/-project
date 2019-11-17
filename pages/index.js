@@ -2,16 +2,10 @@
 import Layout from "../components/MyLayout";
 
 import { useCheeseData } from "../hooks/useCheeseData";
-import { Button, Card, Elevation } from "@blueprintjs/core";
 import CheeseCard from "../components/CheeseCard";
 
 const Index = props => {
-  const {
-    cheeseData,
-    loadCheeseData,
-    saveCheeseData,
-    deleteRecord
-  } = useCheeseData();
+  const { cheeseData, deleteRecord } = useCheeseData();
 
   const handleClickDelete = cheeseId => {
     deleteRecord(cheeseId);
