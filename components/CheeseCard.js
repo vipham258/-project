@@ -1,0 +1,46 @@
+import { Button, Card, Elevation } from "@blueprintjs/core";
+
+const CheeseCard = props => {
+  const { cheeseRecord } = props;
+  const header = Object.keys(cheeseRecord);
+  return (
+    <Card
+      interactive={true}
+      elevation={Elevation.TWO}
+      style={{
+        maxWidth: "300px",
+        width: "300px",
+        marginRight: "20px",
+        marginBottom: "20px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
+      }}
+    >
+      <div>
+        <h5 style={{ textAlign: "center", color: "GreenYellow" }}>
+          Cheese ID: {cheeseRecord.CheeseId}
+        </h5>
+        {Object.values(cheeseRecord)
+          .slice(1)
+          .map((columnValue, i) => {
+            const columnName = header[i + 1];
+            return (
+              <p key={columnName}>
+                <strong style={{ color: "LightGreen" }}>{columnName}</strong>:{" "}
+                {columnValue}
+              </p>
+            );
+          })}
+      </div>
+      <div style={{ textAlign: "right" }}>
+        <Button icon="edit" style={{ marginRight: "8px" }}>
+          Edit
+        </Button>
+        <Button icon="delete">Delete</Button>
+      </div>
+    </Card>
+  );
+};
+
+export default CheeseCard;

@@ -6,8 +6,6 @@ import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 const createForm = () => {
   const [cheeseId, setCheeseId] = useState("0");
-  const []
-
   return (
     <Layout>
       <form>
