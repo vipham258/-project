@@ -1,7 +1,7 @@
 import { Button, Card, Elevation } from "@blueprintjs/core";
 
 const CheeseCard = props => {
-  const { cheeseRecord } = props;
+  const { cheeseRecord, onClickDelete } = props;
   const header = Object.keys(cheeseRecord);
   return (
     <Card
@@ -37,7 +37,12 @@ const CheeseCard = props => {
         <Button icon="edit" style={{ marginRight: "8px" }}>
           Edit
         </Button>
-        <Button icon="delete">Delete</Button>
+        <Button
+          icon="delete"
+          onClick={() => onClickDelete(cheeseRecord.CheeseId)}
+        >
+          Delete
+        </Button>
       </div>
     </Card>
   );

@@ -6,7 +6,16 @@ import { Button, Card, Elevation } from "@blueprintjs/core";
 import CheeseCard from "../components/CheeseCard";
 
 const Index = props => {
-  const { cheeseData, loadCheeseData, saveCheeseData } = useCheeseData();
+  const {
+    cheeseData,
+    loadCheeseData,
+    saveCheeseData,
+    deleteRecord
+  } = useCheeseData();
+
+  const handleClickDelete = cheeseId => {
+    deleteRecord(cheeseId);
+  };
 
   return (
     <Layout>
@@ -18,6 +27,7 @@ const Index = props => {
             <CheeseCard
               key={record.CheeseId}
               cheeseRecord={record}
+              onClickDelete={handleClickDelete}
             ></CheeseCard>
           );
         })}

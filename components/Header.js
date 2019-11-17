@@ -32,6 +32,9 @@ const Header = () => {
           Save
         </a>
       </Link>
+      <Link>
+        <a style={linkStyle}>Create</a>
+      </Link>
     </div>
   );
 };
