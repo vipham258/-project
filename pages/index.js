@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Layout from "../components/MyLayout";
-import Link from "next/link";
+
 import { useCheeseData } from "../hooks/useCheeseData";
 import { Button, Card, Elevation } from "@blueprintjs/core";
 import CheeseCard from "../components/CheeseCard";
