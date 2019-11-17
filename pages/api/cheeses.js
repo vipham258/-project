@@ -1,5 +1,9 @@
 import { inspect } from "util";
-const { loadCheeseRecords } = require("../../cheese/persistence");
+
+const {
+  loadCheeseRecords,
+  saveCheeseRecords
+} = require("../../cheese/persistence");
 
 // cheese column
 
@@ -9,7 +13,7 @@ const { loadCheeseRecords } = require("../../cheese/persistence");
 //  - See https://nextjs.org/docs#api-routes
 export default async (req, res) => {
   if (req.method === "GET") {
-    // read/query
+    // load
     res.setHeader("Content-Type", "application/json");
     res.statusCode = 200;
 
@@ -18,22 +22,17 @@ export default async (req, res) => {
     res.end(JSON.stringify({ records, header }));
   }
   if (req.method === "POST") {
-    // create
-  } else if (req.method === "PATCH") {
-    // update
-    res.setHeader("Content-Type", "application/json");
-    res.statusCode = 200;
-
-    const updatedRecord = JSON.parse(req.body);
-
-    if (USE_MOCK_DATA) {
-      const record = cheeseColumns.find(r => r.id === updatedRecord.id);
-      Object.assign(record, updatedRecord);
-      res.end(JSON.stringify(updatedRecord));
-    } else {
-      // TODO: access the database using the mysql package
+    // save
+    const { records, header } = JSON.parse(req.body);
+    console.log(`save received data: `, inspect({ records, header }));
+    try {
+      await saveCheeseRecords({ records, header });
+      res.statusCode = 200;
+      res.end();
+    } catch (error) {
+      console.log(error);
+      res.statusCode = 500;
+      res.end();
     }
-  } else if (req.method === "DELETE") {
-    // delete
   }
 };
