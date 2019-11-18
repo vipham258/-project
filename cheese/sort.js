@@ -8,9 +8,9 @@ function sortByID(cheeseRecords) {
   byCheeseId.sort(function(a, b) {
     return a.CheeseId - b.CheeseId;
   });
-  console.log("Program by: Vi Thi Phuong Pham - 040886894");
-  console.log("---------------Sorting by CheeseId:----------------");
-  console.log(byCheeseId);
+  // console.log("Program by: Vi Thi Phuong Pham - 040886894");
+  // console.log("---------------Sorting by CheeseId:----------------");
+  // console.log(byCheeseId);
   return byCheeseId;
 }
 //Sort cheese objects by Manufacturer provcode
@@ -21,9 +21,9 @@ function sortByProvCode(cheeseRecords) {
     let y = b.ManufacturerProvCode;
     return x.localeCompare(y);
   });
-  console.log("Program by: Vi Thi Phuong Pham - 040886894");
-  console.log("---------------Sorting by Province code:----------------");
-  console.log(byName);
+  // console.log("Program by: Vi Thi Phuong Pham - 040886894");
+  // console.log("---------------Sorting by Province code:----------------");
+  // console.log(byName);
   return byName;
 }
 

@@ -2,7 +2,7 @@
  *  @fileOverview Unit testing for sorting by cheese ID function
  *  @author       Vi Thi Phuong Pham
  */
-const { sortByID } = require("./sort");
+const { sortByID } = require("../cheese/sort");
 
 //data for testing
 const testRecords = [
