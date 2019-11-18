@@ -1,3 +1,7 @@
+/**
+ *  @fileOverview update Cheese Record form. get cheeseId from index, using router library
+ *  @author       Vi Thi Phuong Pham
+ */
 import React from "react";
 import Layout from "../components/MyLayout";
 import { useCheeseData } from "../hooks/useCheeseData";
@@ -5,7 +9,7 @@ import "normalize.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FormGroup, InputGroup } from "@blueprintjs/core";
-
+//create custom FormField componet
 const FormField = props => {
   return (
     <div>
@@ -20,7 +24,7 @@ const FormField = props => {
     </div>
   );
 };
-
+//create the form in dynamic way
 const CreateForm = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -46,7 +50,7 @@ const CreateForm = () => {
     console.log("state: ", state);
     console.log("fieldPropsList: ", fieldPropsList);
   }, [fieldPropsList, state]);
-
+  //handle submit function
   const handleSubmit = () => {
     const cheeseRecord = { ...state };
     fieldPropsList.forEach(fieldProps => {
@@ -55,6 +59,7 @@ const CreateForm = () => {
     updateRecord(id, cheeseRecord);
   };
   return (
+    //layout for the form
     <Layout>
       <div>
         <form>

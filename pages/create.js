@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+/**
+ *  @fileOverview create cheese form
+ *  @author       Vi Thi Phuong Pham
+ */
+import React from "react";
 import Layout from "../components/MyLayout";
 import { useCheeseData } from "../hooks/useCheeseData";
 import "normalize.css";
@@ -7,6 +11,8 @@ import Link from "next/link";
 // import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import { FormGroup, InputGroup } from "@blueprintjs/core";
+
+//generate custom FormField component
 const FormField = props => {
   return (
     <div>
@@ -25,7 +31,7 @@ const FormField = props => {
 const CreateForm = () => {
   const { cheeseData, createRecord } = useCheeseData();
   const [state, setState] = React.useState({});
-
+  //make the fieldProps become dynamic so we dont need to copy paste code
   const fieldPropsList = cheeseData.header.map(columnName => {
     return {
       label: columnName,
@@ -44,7 +50,7 @@ const CreateForm = () => {
     console.log("state: ", state);
     console.log("fieldPropsList: ", fieldPropsList);
   }, [fieldPropsList, state]);
-
+  //handle submit function
   const handleSubmit = () => {
     const cheeseRecord = { ...state };
     fieldPropsList.forEach(fieldProps => {

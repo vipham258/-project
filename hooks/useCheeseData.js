@@ -1,8 +1,13 @@
+/**
+ *  @fileOverview useCheeseData uses api REST, POST + JSON web-service to fetch data from local to web browser
+ *  @author       Vi Thi Phuong Pham
+ */
+
 import React from "react";
 import fetch from "isomorphic-unfetch";
 
 const CheeseDataContext = React.createContext();
-
+//fetch data from server
 export const CheeseAPI = {
   async fetchCheeseData() {
     const res = await fetch("/api/cheeses");
@@ -10,6 +15,7 @@ export const CheeseAPI = {
     console.log(`Features data returned from server`, data);
     return data;
   },
+  //post data
   async postCheeseData(cheeseData) {
     console.log(
       `I think I am posting this cheeseData to the api: `,
@@ -22,13 +28,13 @@ export const CheeseAPI = {
     console.log(`Save response status ${res.status}: `, res.text);
   }
 };
-
+//cheeseDataprovider will hold cheese Records
 export const CheeseDataProvider = ({ children }) => {
   const [cheeseData, setCheeseData] = React.useState({
     header: [],
     records: []
   });
-
+  //testing
   React.useEffect(() => {
     async function fetchData() {
       const data = await CheeseAPI.fetchCheeseData();
@@ -36,14 +42,14 @@ export const CheeseDataProvider = ({ children }) => {
     }
     fetchData();
   }, []);
-
+  //return CheeseDataContext
   return (
     <CheeseDataContext.Provider value={{ cheeseData, setCheeseData }}>
       {children}
     </CheeseDataContext.Provider>
   );
 };
-
+//export cheeseData
 export const useCheeseData = () => {
   const { cheeseData, setCheeseData } = React.useContext(CheeseDataContext);
 
@@ -85,7 +91,7 @@ export const useCheeseData = () => {
         return { ...cheeseData, records: newRecords };
       });
     },
-
+    //delete the specific record from the array using cheeseID
     deleteRecord(cheeseId) {
       setCheeseData(cheeseData => {
         const newRecords = cheeseData.records.filter(
