@@ -26,36 +26,32 @@ const Header = () => {
   };
   return (
     <div>
-      <div>
-        {/*
+      {/*
         link to home page
       */}
-        <Link href="/">
-          <a style={linkStyle}>Home</a>
-        </Link>
-        {/*
-        reload the data from cvs file
-      */}
-        <a onClick={handleClickReloadCheeseData} style={linkStyle}>
-          Reload
-        </a>
-        {/*
-        Save the data to the output.cvs file
-      */}
-        <a onClick={handleClickSaveCheeseData} style={linkStyle}>
-          Save
-        </a>
-        {/*
-        Open the create cheese form
-      */}
-        <Link href="/create">
-          <a style={linkStyle}>Create</a>
-        </Link>
-      </div>
       <div>
-        {" "}
         <h1>Project by Vi Pham 040886894</h1>
       </div>
+
+      <Link href="/">
+        <a style={linkStyle}>Home</a>
+      </Link>
+
+      <a onClick={handleClickReloadCheeseData} style={linkStyle}>
+        Reload
+      </a>
+
+      <a onClick={handleClickSaveCheeseData} style={linkStyle}>
+        Save
+      </a>
+
+      <Link href="/create">
+        <a style={linkStyle}>Create</a>
+      </Link>
+
+      <Link href="/search">
+        <a style={linkStyle}>Search</a>
+      </Link>
     </div>
   );
 };

@@ -13,6 +13,7 @@ const Index = props => {
   const { cheeseData, deleteRecord } = useCheeseData();
   const [sorted, setSorted] = React.useState(false);
   //using useMemo so react doesnt need to render the information again.
+  // eslint-disable-next-line no-unused-vars
   const sortedCheeseRecords = React.useMemo(() => {
     if (sorted) return sortByProvCode(cheeseData.records);
     else return cheeseData.records;
@@ -38,7 +39,7 @@ const Index = props => {
       </div>
       <h2 style={{ textAlign: "center", color: "GreenYellow" }}>Cheese Data</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {sortedCheeseRecords.map(record => {
+        {cheeseData.records.slice(0, 200).map(record => {
           return (
             //render Cheese card
             <CheeseCard
