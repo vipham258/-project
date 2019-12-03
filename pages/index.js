@@ -22,7 +22,7 @@ const Index = props => {
       <h1>Project by Vi Pham 040886894</h1>
       <h2 style={{ textAlign: "center" }}>Cheese</h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {cheeseData.records.map(record => {
+        {cheeseData.records.slice(0, 200).map(record => {
           return (
             <CheeseCard
               key={record.CheeseId}

@@ -136,7 +136,7 @@ function loadCheeseRecords() {
   return new Promise((resolve, reject) => {
     let filePath = "canadianCheeseDirectory.csv";
 
-    let max = 200;
+    let max = -1;
     let counter = 0;
 
     //regex expression for (,)
@@ -165,7 +165,7 @@ function loadCheeseRecords() {
       }
       rows.push(row);
 
-      if (counter++ >= max) {
+      if (max >= 0 && counter++ >= max) {
         //stop reading
         rl.close();
         rl.removeAllListeners();
