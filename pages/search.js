@@ -68,6 +68,9 @@ const SearchForm = () => {
       </div>
       <div>
         <h2 style={{ color: "GreenYellow" }}>Search Results</h2>
+        <h3 style={{ color: "GreenYellow" }}>
+          Program by: Vi Pham - 040886894
+        </h3>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {searchResults.slice(0, 200).map(record => {
             return <CheeseCard key={record.CheeseId} cheeseRecord={record} />;
