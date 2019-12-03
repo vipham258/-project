@@ -45,7 +45,7 @@ const SearchForm = () => {
     <Layout>
       <div>
         <form>
-          <h2 style={{ color: "GreenYellow" }}>Create Cheese record</h2>
+          <h2 style={{ color: "GreenYellow" }}>Search for Cheese record</h2>
           <div>
             {fieldPropsList.map(fieldProps => {
               return (
