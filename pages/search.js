@@ -4,10 +4,9 @@ import Layout from "../components/MyLayout";
 import FormField from "../components/FormField";
 import CheeseCard from "../components/CheeseCard";
 import { useCheeseData } from "../hooks/useCheeseData";
-
 import { Button } from "@blueprintjs/core";
 
-import searchRecords from "../cheese/search";
+import { searchRecords } from "../cheese/search";
 
 const SearchForm = () => {
   const { cheeseData } = useCheeseData();

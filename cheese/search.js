@@ -1,6 +1,9 @@
-// cheeseRecords is array of cheese record objects
-// searchTerms is a cheese record object
-export default function searchRecords(cheeseRecords, searchTerms) {
+/**
+ *  @fileOverview cheeseRecords is array of cheese record objects
+ *  searchTerms is a cheese record object
+ *  @author       Vi Thi Phuong Pham
+ */
+function searchRecords(cheeseRecords, searchTerms) {
   return cheeseRecords.filter(cheeseRecord => {
     // if any term is present but does not match the the record, return false
     for (const name in searchTerms) {
@@ -18,3 +21,5 @@ export default function searchRecords(cheeseRecords, searchTerms) {
     return true;
   });
 }
+
+module.exports = { searchRecords };
